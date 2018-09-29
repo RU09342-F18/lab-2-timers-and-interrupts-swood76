@@ -20,7 +20,7 @@ int main(void)
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
 
-    BCSCTL3 = LFXT1S_2; // Initialization of 32 kHz crystal, with bit name XT1, and its corresponding register of BCSCTL3
+    BCSCTL3 = LFXT1S_2; // Initialization of external 32 kHz crystal, with bit name XT1, and its corresponding register of BCSCTL3
     P1REN |= BIT3;
     // Initialization of pull up/ down resistor
 

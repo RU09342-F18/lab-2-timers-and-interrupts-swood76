@@ -7,48 +7,36 @@
  */
 #include <msp430.h>
 
-int main(void) {
+int main(void)
+{
 
     WDTCTL = WDTPW | WDTHOLD;   // Stop watchdog timer
 
-    P1DIR&=~BIT3; //Set P1.3 as input
+    P1DIR &= ~BIT3; //Configures button as input
     P1REN|=BIT3; //Enable pullup/pulldown resistors for P1.3
-    P1OUT|=BIT3; //Set P1.3 to have pull up resistors
+    P1OUT|=BIT3; // Sets resistor to pullup
 
-    P1IE|=BIT3; //Enable interrupt on P1.3
+    P1IE|=BIT3; // Configures enable interrupt on P1.3
     P1IES|=BIT3; //Set interrupt flag on the falling edge of logic level on P1.3
 
-    __enable_interrupt(); //Enable maskable interrupts
+    __enable_interrupt(); //Function call to enables maskable interrupts
 
-    P1DIR|=BIT0; //Set P1.0 as output
-    P1OUT&=~BIT0; //Initially turn off the LED
+    P1DIR |= BIT0; // Initializes the Green LED as an output
+    P1OUT &= ~BIT0; // Sets the Green LED to be off prior to the switch being pressed
 
-
-    __low_power_mode_0(); //Go to low power mode 0
+    __low_power_mode_0(); // call to Initiate low power mode
      return 0;
 }
-
+// Port 1 ISR is activated when button is pressed and the state is transistioned from high to low
 #pragma vector=PORT1_VECTOR
-__interrupt void P1_Function()
+__interrupt void Port_1(void)
 {
-    int i; //Declare counter variable
-   //Toggle the LED
-    i=0; //Start a counter variable
-   while(i<500) //Wait till the switch is not pressed continusouly for 500 loop cycles
-    {
-        if((P1IN&BIT3==1))
-        {
-            i++;
-       // __delay_cycles(500);
-        }
-        else
-        {
-            i--;
-            P1OUT^=BIT0;
-        }
-       // __delay_cycles(500);//If the switch is pressed, reset the counter variable
-    }
-    P1IFG&=~BIT3; // Reset interrupt flag
+P1OUT ^=  BIT0;// Toggles the green led on and off
+P1IFG &= ~BIT3; // Allows for reset interrupt flag to be activated when the button is pressed
 }
+
+
+
+
 
 

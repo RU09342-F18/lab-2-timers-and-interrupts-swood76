@@ -1,6 +1,5 @@
 #include <msp430.h>
-
-/**
+/*
 Program allows the user through Up count mode to increase and control the speed of an two LEDS (red and green).
 */
 

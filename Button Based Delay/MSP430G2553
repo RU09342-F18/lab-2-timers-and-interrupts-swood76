@@ -5,9 +5,9 @@
 *
 
 
- This code is meant to solve the problem of the button delay. In this program the user is able to hold down the already
-
- blinking red and green LEDs, and the time they hold down is counted, and the LEDs then blink at the time and frequency held down by the user
+ This code is meant to solve the problem of the button delay. In this program the user is meant to press button P1.3, so that
+ the already blinking (frequency 10kHz) red and green LEDs, and the time they hold down is counted by the TIMERA module, where ACLK
+ is selected, Up-Count selected, and clock divider of 8 selected.
 
 * Code is meant to be implemented on MSP430G2553
 

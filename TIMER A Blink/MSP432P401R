@@ -13,35 +13,20 @@ extern void TimerA0_N_ISR_handler( void );
 
 
 int main(void)
-
-
 {
 
-
-
-
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
-
-
     P1REN |= BIT4;
     // Initialization of pull up/ down resistor
 
     P2DIR |= BIT0;  // Initialization of the  pins 1.0 as an output so that Green LED is on
     P2DIR |= BIT1;  // Initialization of the  pins 1.6 as an output so that RED LED is on
 
-
-
-
     P1OUT |= BIT4; //Sets button to be high so pull up resistor is enabled
 
-
-
-
-
-
     P2OUT |= BIT0; // Sets initialized Pin 1.0 and Pin 1.6 high at start, so that they are both ON
-       P2OUT |= BIT1;
-       P1IE |= BIT4; //Sets and enables interrupt such it is configured to Button P1.3
+    P2OUT |= BIT1;
+    P1IE |= BIT4; //Sets and enables interrupt such it is configured to Button P1.3
     P1IES |= BIT4; //Enables high - to - low behavior on interrupt (Button press)
 
 

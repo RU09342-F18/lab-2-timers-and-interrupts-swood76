@@ -1,12 +1,2 @@
 # Button Based Delay
-Now that you have begun to familiarize yourself with the TIMER modules, why don't we make an interesting change to our code from the last lab.
-
-## Task
-Setup your microcontroller to initially blink and LED at a rate of 10Hz upon restarting or powering up. Then utilizing one of the buttons on board, a user should be able to set the delay or blinking rate of the LED by holding down a button. The duration in which the button is depressed should then become the new rate at which the LED blinks. As previously stated, you most likely will want to take advantage of the fact that TIMER modules exist and see if you can let them do a bulk of the work for you.
-
-### Extra Work
-## Reset Button
-What is a piece of electronics without a reset button? Instead of relying on resetting your processor using the built in reset circuitry, why not instead use another button to reset the rate back to 10Hz.
-
-## Button Based Hertz
-Most likely using two buttons, what if instead of making a delay loop based on the time, the user could instead enter a mode where the number of times they pressed the button would become the number in Hz of the blinking rate? How do you think you would implement that with just one button?
+Included in this repository is two examples of a button based delay implementyented on two different MSP430 Family Launchpads: MSP430G2553 and MSP430F5529LP.  In this program the user is meant to press button P1.3, so that the already blinking (frequency 10kHz) red and green LEDs, and the time they hold down is counted by the TIMERA module, where ACLK is selected, Up-Count selected, and clock divider of 8 selected. The program functions with the use of two interrupt service routines: TimerA and PORT1 and control flow structures, TIMERA ISR, which is set to count to CCR0, blink the two LEDS, and the PORT 1 ISR, which makes use of both TIMERA module's ACLK in both continuous and count up, continuous on the button press, and count up on release. The time, or frequency held down by the user is now the frequency the LEDS blink at. As mentioned previously, this program works on both the MSP430G2553 and MSP430F5529LP, and does so with not much change other then the main difference being in of course the change in PORT decleration, but also a difference in regiter initialization, and difference in the required initialization of the 32 kHz crystal oscillator on the MSP430G2553, which was necessary to be able to make use of the ACLK as an internal oscillator, which was completely unnecessary on the MSP430F5529LP.

@@ -9,23 +9,14 @@
 
 
 int main(void)
-
-
 {
 
-
    WDTCTL = WDTPW | WDTHOLD;   // Stop watchdog timer
-
-
-
-
    P1DIR |= BIT0;  // Initialization of the  pins 1.0 as an output so that RED LED is on
    P4DIR |= BIT7;  // Initialization of the  pins 4.7 as an output so that GREEN LED is on
 
 
    P1REN |= BIT1; // Initialization of pull up/ down resistor
-
-
 
    P1OUT |= BIT1; //Sets button to be high so pull up resistor is enabled
 

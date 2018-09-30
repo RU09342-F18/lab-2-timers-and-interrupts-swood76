@@ -42,7 +42,7 @@ int main(void)
    P1OUT |= BIT6;
 
 
-   CCR0 =  101;  //Set Frequency in the zeroth capture compare register
+   CCR0 =  103;  //Set Frequency in the zeroth capture compare register to 10kHz
 
 
    P1IE |= BIT3; //Sets and enables interrupt such it is configured to Button

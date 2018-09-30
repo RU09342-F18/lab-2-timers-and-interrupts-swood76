@@ -1,18 +1,10 @@
 #include <msp430.h>
-/**
-
-
-*
-
-
- This code is meant to solve the problem of the button delay. In this program the user is able to hold down the already
-
- blinking red and green LEDs, and the time they hold down is counted, and the LEDs then blink at the time and frequency held down by the user
-
-* Code is meant to be implemented on MSP430F5529LP
-*
-* Major difference and change in this transferring this program to the F5529LP was the fact that all the registers had to be defined by TAXXXX.etc
-
+/*This code is meant to solve the problem of the button delay. In this program the user is able to hold down the already
+ blinking red and green LEDs, and the time they hold down is counted, and the LEDs
+ then blink at the time and frequency held down by the user
+ Code is meant to be implemented on MSP430F5529LP
+ Major difference and change in this transferring this program to the F5529LP was the fact that all 
+ the registers had to be defined by TAXXXX.etc
 */
 
 

@@ -13,7 +13,7 @@
 int main(void)
 {
 
-x    WDTCTL = WDTPW | WDTHOLD;   // Stop watchdog timer
+   WDTCTL = WDTPW | WDTHOLD;   // Stop watchdog timer
     PM5CTL0 &= ~LOCKLPM5; // Without this line the GPIO functionality was locked, it disables the GPIO power-on default high-impedance mode
     P1DIR &= ~BIT1; //Configures button as input
     P1REN|=BIT1; //Enable pullup/pulldown resistors for P1.1
@@ -31,7 +31,7 @@ x    WDTCTL = WDTPW | WDTHOLD;   // Stop watchdog timer
      return 0;
 }
 // Port 1 ISR is activated when button is pressed and the state is transistioned from high to low
-#pragma vector=PORT1_VECTOR
+#pragma vector = PORT1_VECTOR
 __interrupt void Port_1(void)
 {
 P1OUT ^=  BIT0;// Toggles the red LED on and off

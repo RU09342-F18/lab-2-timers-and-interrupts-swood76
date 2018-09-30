@@ -13,7 +13,7 @@ following error: Error connecting to the target.
 
 */
 
-/* External declarations for the interrupt handlers used by the application. Essential to do for interrupt use on the MSP432 could not use PRAGMA vector*/
+/* External declarations for the interrupt handlers used by the application. Essential to do for interrupt use on the MSP432P401R could not use PRAGMA vector*/
 extern void PORT1_ISR_handler( void );
 extern void TimerA0_N_ISR_handler( void );
 

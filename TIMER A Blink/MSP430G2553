@@ -1,14 +1,7 @@
 #include <msp430.h>
 
 /**
-
-
-* main.c
-
-
-Program allows the user through Up count mode to increase and control the speed of an two LEDS (red and green) until the CRR0 register is reached
-
-
+Program allows the user through Up count mode to increase and control the speed of an two LEDS (red and green).
 */
 
 int main(void)

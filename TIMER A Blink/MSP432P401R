@@ -1,16 +1,10 @@
 #include "msp.h"
 
 /**
-
-
-
 Program allows the user through Up count mode to increase and control the speed of an two LEDS (red and green) of PORT2
 until the TA0CRR0 register is reached
-
 Attempt of implementation on the MSP432, so far it compiles, but an error is created when programmed and debugged,
 following error: Error connecting to the target.
-
-
 */
 
 /* External declarations for the interrupt handlers used by the application. Essential to do for interrupt use on the MSP432P401R could not use PRAGMA vector*/

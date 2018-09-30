@@ -1,50 +1,28 @@
 #include <msp430.h>
-/**
-
-
-*
-
-
+/*
  This code is meant to solve the problem of the button delay. In this program the user is meant to press button P1.3, so that
  the already blinking (frequency 10kHz) red and green LEDs, and the time they hold down is counted by the TIMERA module, where ACLK
  is selected, Up-Count selected, and clock divider of 8 selected.
-
-* Code is meant to be implemented on MSP430G2553
-
+ Code is meant to be implemented on MSP430G2553
 */
 
 
 int main(void)
-
-
 {
-
-
    WDTCTL = WDTPW | WDTHOLD;   // Stop watchdog timer
-
-
-
-
    P1DIR |= BIT0;  // Initialization of the  pins 1.0 as an output so that Green LED is on
    P1DIR |= BIT6;  // Initialization of the  pins 1.6 as an output so that RED LED is on
-
-
    P1REN |= BIT3; // Initialization of pull up/ down resistor
 
    BCSCTL3 = LFXT1S_2; // Initialization of 32 kHz crystal, with bit name XT1, and its corresponding register of BCSCTL3
 
    P1OUT |= BIT3; //Sets button to be high so pull up resistor is enabled
 
-
-
-
    P1OUT |= BIT0; // Sets initialized Pin 1.0 and Pin 1.6 high at start, so that they are both ON
    P1OUT |= BIT6;
 
 
    CCR0 =  103;  //Set Frequency in the zeroth capture compare register to 10kHz
-
-
    P1IE |= BIT3; //Sets and enables interrupt such it is configured to Button
 
    P1IES |= BIT3; // Allows for switch functionality of button for the interrupt behavior

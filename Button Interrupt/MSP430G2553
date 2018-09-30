@@ -1,10 +1,8 @@
 /*
-
- *The purpose of this code is to resolve the issue of polling and allow it so that a more efficient method
- * is implemented to detect switch press and blink an LED on the press of a button, so that is this program, which
- * enables the user to press the button and the LED blinks.
- The program makes use of the Port 1, specifically, P1.0 and P1.3, the green LED and the button.
- *
+The purpose of this code is to resolve the issue of polling and allow it so that a more efficient method
+is implemented to detect switch press and blink an LED on the press of a button, so that is this program, which
+enables the user to press the button and the LED blinks.
+The program makes use of the Port 1, specifically, P1.0 and P1.3, the green LED and the button.
  */
 #include <msp430.h>
 
